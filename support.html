@@ -18,7 +18,7 @@
     <a class="brand" href="index.html">
       <svg width="26" height="26" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
         <circle cx="25" cy="7.5" r="3.5" fill="#E85D2F"/>
-        <path d="M2 27L12.5 7l6 11 4-7L31 27H2z" fill="#14171C"/>
+        <path d="M2 27L12.5 7l6 11 4-7L31 27H2z" fill="#F2F0EC"/>
       </svg>
       Atlas Peak
     </a>
@@ -34,13 +34,13 @@
 <main>
   <section class="section">
     <div class="wrap">
-      <div class="section-head">
+      <div class="section-head" data-reveal>
         <span class="eyebrow">Support</span>
         <h2 style="margin-top: 18px;">How can we help?</h2>
         <p>Questions, bug reports, and feature requests all go straight to the developer. Most emails get a reply within 1–2 business days.</p>
       </div>
 
-      <div class="contact-card" id="contact">
+      <div class="contact-card" data-reveal id="contact">
         <h3>Contact us</h3>
         <p>Email is the fastest way to reach us. Include the app name and, if reporting a bug, your device model and iOS version.</p>
         <a class="btn btn-accent" href="mailto:atlaspeak@atlaspeakapp.com">atlaspeak@atlaspeakapp.com</a>
@@ -50,10 +50,10 @@
 
   <section class="section alt">
     <div class="wrap">
-      <div class="section-head">
+      <div class="section-head" data-reveal>
         <h2>Frequently asked questions</h2>
       </div>
-      <div class="faq">
+      <div class="faq" data-reveal>
         <details>
           <summary>How do I cancel or manage a subscription?</summary>
           <p>Subscriptions (like Daily Metronome Pro) are billed through your Apple ID, not by Atlas Peak directly. To manage or cancel: open <strong>Settings</strong> on your iPhone → tap your name → <strong>Subscriptions</strong> → select the app. Cancelling stops the next renewal; you keep access until the end of the current billing period.</p>
@@ -90,7 +90,7 @@
         <a class="brand" href="index.html">
           <svg width="24" height="24" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
             <circle cx="25" cy="7.5" r="3.5" fill="#E85D2F"/>
-            <path d="M2 27L12.5 7l6 11 4-7L31 27H2z" fill="#14171C"/>
+            <path d="M2 27L12.5 7l6 11 4-7L31 27H2z" fill="#F2F0EC"/>
           </svg>
           Atlas Peak
         </a>
@@ -129,5 +129,7 @@
   </div>
 </footer>
 
+<script src="https://unpkg.com/lenis@1.1.14/dist/lenis.min.js"></script>
+<script defer src="js/main.js"></script>
 </body>
 </html>

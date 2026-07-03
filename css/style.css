@@ -77,34 +77,6 @@ img { max-width: 100%; display: block; }
   .marquee-track { animation: none !important; }
 }
 
-/* ---------- Custom cursor (desktop only) ---------- */
-@media (pointer: fine) {
-  .cursor-dot, .cursor-ring {
-    position: fixed;
-    top: 0; left: 0;
-    pointer-events: none;
-    z-index: 9999;
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-  }
-  .cursor-dot {
-    width: 8px; height: 8px;
-    background: var(--accent);
-  }
-  .cursor-ring {
-    width: 36px; height: 36px;
-    border: 1.5px solid rgba(255, 107, 53, 0.5);
-    transition: width 0.25s ease, height 0.25s ease, border-color 0.25s ease, background 0.25s ease;
-  }
-  .cursor-ring.is-hover {
-    width: 60px; height: 60px;
-    background: rgba(255, 107, 53, 0.1);
-    border-color: rgba(255, 107, 53, 0.9);
-  }
-}
-.cursor-dot, .cursor-ring { display: none; }
-.js.has-cursor .cursor-dot, .js.has-cursor .cursor-ring { display: block; }
-
 /* ---------- Header ---------- */
 .site-header {
   position: fixed;
@@ -443,6 +415,42 @@ img { max-width: 100%; display: block; }
 .app-detail .detail-links { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
 .app-detail .detail-links .legal-link { font-size: 0.9rem; color: var(--muted); }
 .app-detail .detail-links .legal-link:hover { color: var(--ink); }
+
+/* ---------- Meet the maker ---------- */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 56px;
+  align-items: start;
+}
+.about-intro h2 {
+  font-size: clamp(2.2rem, 5vw, 3.4rem);
+  margin: 20px 0 18px;
+}
+.about-sig {
+  font-family: var(--font-head);
+  font-size: 1.05rem;
+  color: var(--accent);
+  line-height: 1.6;
+  border-left: 3px solid var(--accent);
+  padding-left: 16px;
+}
+.about-story p {
+  color: var(--ink-soft);
+  margin-bottom: 20px;
+  font-size: 1.05rem;
+}
+.about-story .about-cta {
+  color: var(--muted);
+  font-size: 0.98rem;
+  border-top: 1px solid var(--line);
+  padding-top: 20px;
+  margin-bottom: 0;
+}
+
+@media (max-width: 720px) {
+  .about-grid { grid-template-columns: 1fr; gap: 32px; }
+}
 
 /* ---------- Values / about strip ---------- */
 .values {

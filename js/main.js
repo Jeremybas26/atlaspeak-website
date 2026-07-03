@@ -44,39 +44,6 @@
     revealEls.forEach(function (el) { el.classList.add('in'); });
   }
 
-  /* ----- Custom cursor (desktop, non-reduced-motion) ----- */
-  if (finePointer && !reduceMotion) {
-    document.documentElement.classList.add('has-cursor');
-    var dot = document.createElement('div');
-    var ring = document.createElement('div');
-    dot.className = 'cursor-dot';
-    ring.className = 'cursor-ring';
-    document.body.appendChild(dot);
-    document.body.appendChild(ring);
-
-    var mx = -100, my = -100, rx = -100, ry = -100;
-    window.addEventListener('mousemove', function (e) {
-      mx = e.clientX; my = e.clientY;
-      dot.style.left = mx + 'px';
-      dot.style.top = my + 'px';
-    }, { passive: true });
-
-    (function ringLoop() {
-      rx += (mx - rx) * 0.16;
-      ry += (my - ry) * 0.16;
-      ring.style.left = rx + 'px';
-      ring.style.top = ry + 'px';
-      requestAnimationFrame(ringLoop);
-    })();
-
-    document.addEventListener('mouseover', function (e) {
-      if (e.target.closest('a, button, summary')) ring.classList.add('is-hover');
-    });
-    document.addEventListener('mouseout', function (e) {
-      if (e.target.closest('a, button, summary')) ring.classList.remove('is-hover');
-    });
-  }
-
   /* ----- Magnetic buttons ----- */
   if (finePointer && !reduceMotion) {
     document.querySelectorAll('.btn, .store-btn').forEach(function (el) {

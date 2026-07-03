@@ -364,6 +364,150 @@ img { max-width: 100%; display: block; }
 .store-btn .txt small { font-size: 0.62rem; font-weight: 500; opacity: 0.75; }
 .store-btn .txt span { font-size: 0.95rem; font-weight: 700; letter-spacing: -0.01em; }
 
+/* ---------- Full-screen app story sections (landing) ---------- */
+.app-story {
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  padding: 80px 0;
+  border-top: 1px solid var(--line);
+  background: var(--bg);
+}
+.app-story.flip { background: var(--bg-raise); }
+
+.story-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.25fr;
+  gap: 72px;
+  align-items: center;
+  width: 100%;
+}
+.app-story.flip .story-icon { order: 2; }
+.app-story.flip .story-body { order: 1; }
+
+.story-icon { display: flex; justify-content: center; }
+.story-icon .icon {
+  width: min(230px, 55vw);
+  height: auto;
+  border-radius: 52px;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6), 0 0 60px rgba(255, 107, 53, 0.06);
+}
+
+.story-body .genre {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.story-body h3 {
+  font-size: clamp(2rem, 4.5vw, 3rem);
+  margin: 8px 0 16px;
+}
+.story-body > p {
+  color: var(--ink-soft);
+  font-size: 1.1rem;
+  max-width: 54ch;
+  margin-bottom: 22px;
+}
+.story-feats {
+  list-style: none;
+  margin-bottom: 30px;
+}
+.story-feats li {
+  color: var(--muted);
+  padding-left: 24px;
+  position: relative;
+  margin-bottom: 8px;
+}
+.story-feats li::before {
+  content: "▲";
+  position: absolute;
+  left: 0;
+  top: 1px;
+  font-size: 0.6rem;
+  color: var(--accent);
+}
+.story-body .card-links { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+
+@media (max-width: 720px) {
+  .app-story { padding: 64px 0; }
+  .story-grid { grid-template-columns: 1fr; gap: 40px; }
+  .app-story.flip .story-icon { order: 0; }
+  .app-story.flip .story-body { order: 1; }
+  .story-icon .icon { width: min(160px, 45vw); border-radius: 36px; }
+}
+
+/* ---------- Climber character ---------- */
+#climber-layer {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  z-index: 90;
+  pointer-events: none;
+  overflow: visible;
+}
+#climber {
+  position: absolute;
+  top: 0; left: 0;
+  width: 48px;
+  height: 64px;
+  will-change: transform;
+  filter: drop-shadow(0 1px 1.5px rgba(10, 12, 17, 0.9)) drop-shadow(0 0 1px rgba(10, 12, 17, 0.7));
+}
+#climber .limb {
+  stroke: #f2f0ec;
+  stroke-width: 3.4;
+  stroke-linecap: round;
+  fill: none;
+}
+#climber .noggin { fill: #f2f0ec; }
+#climber g[data-pose] { display: none; }
+#climber.pose-rappel g[data-pose="rappel"],
+#climber.pose-climb g[data-pose="climb"],
+#climber.pose-sit g[data-pose="sit"],
+#climber.pose-hang g[data-pose="hang"],
+#climber.pose-wave g[data-pose="wave"] { display: block; }
+
+#climber-rope {
+  position: absolute;
+  width: 2px;
+  background: linear-gradient(to bottom, rgba(242, 240, 236, 0), rgba(242, 240, 236, 0.55));
+  border-radius: 2px;
+}
+
+/* Idle micro-animations */
+#climber .wave-arm {
+  transform-origin: 24px 22px;
+  animation: climber-wave 1.6s ease-in-out infinite;
+}
+@keyframes climber-wave {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(-24deg); }
+}
+#climber .sit-legs {
+  transform-origin: 24px 33px;
+  animation: climber-kick 2.8s ease-in-out infinite;
+}
+@keyframes climber-kick {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(6deg); }
+}
+#climber .hang-legs {
+  transform-origin: 24px 36px;
+  animation: climber-dangle 3.2s ease-in-out infinite;
+}
+@keyframes climber-dangle {
+  0%, 100% { transform: rotate(-5deg); }
+  50% { transform: rotate(7deg); }
+}
+
+@media (max-width: 720px) {
+  #climber { width: 36px; height: 48px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  #climber-layer { display: none; }
+}
+
 /* ---------- App detail rows (apps.html) ---------- */
 .app-detail {
   display: grid;
